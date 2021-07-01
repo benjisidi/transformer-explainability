@@ -1,3 +1,0 @@
-import captum
-
-print("Done.")
