@@ -84,27 +84,18 @@ def get_all_layer_integrated_gradients(inputs, target, model, tokenizer):
 if __name__ == "__main__":
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-    cg = Chronograph()
-
-    cg.start("Load Tokenizer")
     tokenizer = AutoTokenizer.from_pretrained(
         "distilbert-base-uncased-finetuned-sst-2-english"
     )
-
-    cg.split("Load Model")
     model = AutoModelForSequenceClassification.from_pretrained(
         "distilbert-base-uncased-finetuned-sst-2-english"
     )
     model.eval()
-    cg.split("Layer Conductance")
+
     test_input = "absolutely tremendous"
     attrs = get_all_layer_conductance(test_input, 1, model, tokenizer)
-    cg.split("Layer Integrated Gradients")
     attrs_2 = get_all_layer_integrated_gradients(test_input, 1, model, tokenizer)
-    cg.split("Gradients Only")
     grads = get_all_layer_gradients(test_input, 1, model, tokenizer)
-    cg.stop()
-    print(cg.report())
 
 """
 TIMINGS (from Tachymeter):
