@@ -1,7 +1,7 @@
 # %%
 import os
 import sys
-
+from time import perf_counter
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -177,13 +177,15 @@ print(
 
 # %%
 lig = LayerIntegratedGradients(squad_pos_forward_func, model.bert.embeddings)
-
+start = perf_counter()
 attributions_start, delta_start = lig.attribute(
     inputs=input_ids,
     baselines=ref_input_ids,
     additional_forward_args=(token_type_ids, position_ids, attention_mask, 0),
     return_convergence_delta=True,
 )
+end = perf_counter()
+print(f"Done in {end-start:.2f}s")
 attributions_end, delta_end = lig.attribute(
     inputs=input_ids,
     baselines=ref_input_ids,

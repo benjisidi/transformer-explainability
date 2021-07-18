@@ -1,0 +1,10 @@
+Initial Foray:
+    ✔ LIG for a single layer for single input @done(21-07-18 12:56)
+    ✔ LIG for all layers for single input @done(21-07-18 12:56)
+    ✔ Gradients from a single example from a single layer @done(21-07-18 12:56)
+    ✔ Gradients from a single example from all layers @done(21-07-18 12:56)
+    ☐ Write up layer conductance paper and consider vs LIG
+    ☐ Test LIG and gradients with a batch of data
+    ☐ Implement cosine similarity between grads and attributions
+    ☐ Do some data exploration on the gradients to devise a good compression strategy
+    ☐ Run a test using glue/SST2!
