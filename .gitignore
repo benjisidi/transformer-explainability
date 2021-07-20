@@ -105,3 +105,6 @@ bin/
 
 # vscode
 .vscode
+
+# profiling
+fil-result/
