@@ -6,8 +6,9 @@ def make_input(text, tokenizer):
 
 
 def make_input_batch(batch_text, tokenizer, padding=True):
-    return torch.tensor(
-        tokenizer.batch_encode_plus(batch_text, padding=padding)["input_ids"]
+    tokenized = tokenizer.batch_encode_plus(batch_text, padding=padding)
+    return torch.tensor(tokenized["input_ids"]), torch.tensor(
+        tokenized["attention_mask"]
     )
 
 
@@ -23,12 +24,16 @@ def embeddings_forward_fn(embs, model, attention_mask=None):
 
 
 def dense_to_topk_sparse(tensor, k):
-    # Note: In the case of many repeated values, will retain more than k elements.
-    # Note: This could be fixed by using indices instead but it's proving tricky so
-    # Note: I'm leaving that for another time.
-    flat = tensor.flatten()
-    topk = torch.topk(flat, k)
-    sparse = torch.where(
-        tensor < topk.values[-1], torch.tensor(0, dtype=torch.float), tensor
-    ).to_sparse()
+    # Dims are examples x tokens x features
+    # Sum over tokens
+    summed = torch.sum(tensor, dim=1)
+    # Find top k values for each example
+    topk = torch.topk(summed, k=k, dim=1)
+    # Transform indices for sparse representation
+    indices = torch.tensor(
+        [[i, x.item()] for i in range(len(topk.indices)) for x in topk.indices[i]]
+    ).T
+    values = topk.values.flatten()
+    # Create sparse tensor
+    sparse = torch.sparse_coo_tensor(indices, values, summed.shape)
     return sparse

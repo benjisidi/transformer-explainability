@@ -8,6 +8,19 @@ def flatten_normalize_layers(params):
     return nn.functional.normalize(flat, dim=0)
 
 
+def get_cos_similarites_2(test_attr, training_grads):
+    _, n_samples, _ = training_grads.shape
+    cos = nn.CosineSimilarity(dim=0)
+    test_attr_normalized = nn.functional.normalize(test_attr.flatten(), dim=0)
+    similarities = []
+    for i in range(n_samples):
+        sample_grad_normalized = nn.functional.normalize(
+            torch.select(training_grads, 1, i).to_dense().flatten(), dim=0
+        )  # ToDo: Should this happen before sparse?
+        similarities.append(cos(test_attr_normalized, sample_grad_normalized))
+    return torch.stack(similarities)
+
+
 def get_cos_similarities(test_attributions, training_gradients):
     # Inputs: list of n_layers x n_samples x n_tokens x n_params tensors
     test_attributions = torch.stack(test_attributions)

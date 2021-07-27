@@ -4,7 +4,9 @@ Initial Foray:
     ✔ Gradients from a single example from a single layer @done(21-07-18 12:56)
     ✔ Gradients from a single example from all layers @done(21-07-18 12:56)
     ☐ Write up layer conductance paper and consider vs LIG
-    ☐ Test LIG and gradients with a batch of data
-    ☐ Implement cosine similarity between grads and attributions
+    ✔ Test LIG and gradients with a batch of data @done(21-07-27 14:11)
+    ✔ Implement cosine similarity between grads and attributions @done(21-07-27 14:11)
+    ✔ Test using raw inputs not embeddings (for attention masks) @done(21-07-27 20:08)
+    ✔ Implement a batch loader @started(21-07-27 14:13) @done(21-07-27 20:08) @lasted(5h55m13s)
     ☐ Do some data exploration on the gradients to devise a good compression strategy
     ☐ Run a test using glue/SST2!

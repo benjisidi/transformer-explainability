@@ -3,9 +3,41 @@ from captum._utils.gradient import compute_layer_gradients_and_eval
 from captum.attr import LayerIntegratedGradients
 import functools
 import torch
+from .process_data import dense_to_topk_sparse
 
 
-def get_all_layer_gradients(inputs, targets, model, tokenizer):
+def get_all_layer_gradients_2(loader, layers, fwd, fwd_args=(), sparse=True, k=70):
+    """
+    Params:
+        loader: dataloader that returns batches of (inputs, attn_masks, labels)
+        layers: list of model layers
+        fwd: forward function for captum
+        fwd_args: any additional arguments for the fwd function
+        sparse: whether to save grads in sparse format
+        k: if sparse, how many gradients to save for each layer
+    """
+    all_grads = []
+    for layer in layers:
+        layer_grads = []
+        for data, masks, labels in loader:
+            batch_grads, _ = compute_layer_gradients_and_eval(
+                fwd,
+                layer,
+                inputs=data,
+                additional_forward_args=[masks, *fwd_args] if fwd_args else masks,
+                target_ind=labels,
+            )
+            if sparse:
+                layer_grads.append(dense_to_topk_sparse(batch_grads[0], k=k))
+            else:
+                layer_grads.append(batch_grads[0])
+        all_grads.append(torch.cat(layer_grads))
+    return torch.stack(all_grads)
+
+
+def get_all_layer_gradients(
+    inputs, targets, model, tokenizer, batch_size=30, sparse=False
+):
     layers = model.distilbert.transformer.layer
     all_grads = []
     inputs = get_embeddings(inputs, model, tokenizer)
@@ -17,22 +49,28 @@ def get_all_layer_gradients(inputs, targets, model, tokenizer):
             additional_forward_args=(model),
             target_ind=targets,
         )
-        all_grads.append(gradients[0])
+        # outputs = embeddings_forward_fn(inputs, model) ---> Maybe don't use embeddings and use proper forward if possible?
+        # outputs_selected = torch.gather(outputs, 0, torch.tensor(targets).unsqueeze(1))
+        # grads = torch.grad.autograd(torch.unbind(outputs), inputs, only_inputs=False)
+        # This only seems to return grads wrt the input. Might need to get all layer outputs (which is what captum does).
+        # Not ideal - is this just many backwards passes through?
+        # Should post an update asap.
+        if sparse:
+            all_grads.append(dense_to_topk_sparse(gradients[0], k=70))
+        else:
+            all_grads.append(gradients[0])
     return all_grads
 
 
-def get_all_layer_integrated_gradients(inputs, target, model, tokenizer):
-    layers = model.distilbert.transformer.layer
-    fwd_fn = functools.partial(embeddings_forward_fn, model=model)
-    input_embeddings = get_embeddings(inputs, model, tokenizer)
-    baseline = torch.zeros_like(input_embeddings)
+def get_all_layer_integrated_gradients(inputs, mask, target, layers, fwd, fwd_args=()):
+    baseline = torch.zeros_like(inputs)
     output = []
     for layer in layers:
         layer_integrated_grads = LayerIntegratedGradients(
-            fwd_fn, layer, multiply_by_inputs=False
+            fwd, layer, multiply_by_inputs=False
         )
-        attrs = layer_integrated_grads.attribute(
-            input_embeddings, baselines=baseline, target=target
+        layer_attrs = layer_integrated_grads.attribute(
+            inputs, baselines=baseline, target=target, additional_fwd_ags=[mask, *fwd_args] if fwd_args else mask,
         )
-        output.append(attrs)
-    return output
+        output.append(layer_attrs)
+    return torch.stack(output)

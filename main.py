@@ -40,7 +40,9 @@ if __name__ == "__main__":
     model.eval()
     # Test Layerwise Gradients
     cg.start("Grads")
-    grads = get_all_layer_gradients(train_samples, train_labels, model, tokenizer)
+    grads = get_all_layer_gradients(
+        train_samples, train_labels, model, tokenizer, sparse=True
+    )
     # Test LIG
     cg.split("ligs")
     ligs = get_all_layer_integrated_gradients(
