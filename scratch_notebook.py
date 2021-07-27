@@ -66,5 +66,9 @@ from utils.compare_gradients import get_cos_similarites_2
 # %%
 simils = get_cos_similarites_2(test_attr=test_attributions, training_grads=grads)
 # %%
-
+sorted_scores, sorted_candidates = list(
+    zip(*sorted(zip(simils, train_samples), reverse=True))
+)
+# %%
+list(zip(sorted_candidates, sorted_scores))
 # %%
