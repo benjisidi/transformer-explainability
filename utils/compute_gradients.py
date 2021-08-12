@@ -4,6 +4,7 @@ from captum.attr import LayerIntegratedGradients
 import functools
 import torch
 from .process_data import dense_to_topk_sparse
+from tqdm import tqdm
 
 
 def get_all_layer_gradients_2(loader, layers, fwd, fwd_args=(), sparse=True, k=70):
@@ -19,18 +20,19 @@ def get_all_layer_gradients_2(loader, layers, fwd, fwd_args=(), sparse=True, k=7
     all_grads = []
     for layer in layers:
         layer_grads = []
-        for data, masks, labels in loader:
+        for batch in tqdm(loader):
             batch_grads, _ = compute_layer_gradients_and_eval(
                 fwd,
                 layer,
-                inputs=data,
-                additional_forward_args=[masks, *fwd_args] if fwd_args else masks,
-                target_ind=labels,
+                inputs=batch["input_ids"],
+                additional_forward_args=(batch["attention_mask"]),
+                target_ind=batch["label"],
             )
             if sparse:
                 layer_grads.append(dense_to_topk_sparse(batch_grads[0], k=k))
             else:
-                layer_grads.append(batch_grads[0])
+                batch_grads = batch_grads[0].sum(dim=1)
+                layer_grads.append(batch_grads)
         all_grads.append(torch.cat(layer_grads))
     return torch.stack(all_grads)
 
@@ -70,7 +72,8 @@ def get_all_layer_integrated_gradients(inputs, mask, target, layers, fwd, fwd_ar
             fwd, layer, multiply_by_inputs=False
         )
         layer_attrs = layer_integrated_grads.attribute(
-            inputs, baselines=baseline, target=target, additional_fwd_ags=[mask, *fwd_args] if fwd_args else mask,
+            inputs, baselines=baseline, target=target, additional_forward_args=[
+                mask, *fwd_args] if fwd_args else mask,
         )
         output.append(layer_attrs)
     return torch.stack(output)

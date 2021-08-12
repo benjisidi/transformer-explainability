@@ -1,34 +1,20 @@
-# Imports
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from utils.compute_gradients import (
-    get_all_layer_gradients,
-    get_all_layer_integrated_gradients,
-)
-from utils.compare_gradients import get_cos_similarities, get_n_best_matches
-from pprint import pprint
-
-# Memory Profiling
-from pympler import asizeof
-
-# Timings
-import sys
-
-sys.path.append("/home/benji/repos/tachymeter/chronograph")
-from chronograph import Chronograph
-
-cg = Chronograph()
-
-
+from utils.process_data import encode
+from utils.compute_gradients import get_all_layer_gradients_2, get_all_layer_integrated_gradients
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from datasets import load_dataset
+import torch
+import pickle
+from pprint import pprint
+from os import path
+# Ipython debugger
+import ipdb
+
 
 if __name__ == "__main__":
 
-    dataset = load_dataset("glue", "sst2")
-    #  Get test samples
-    test_sample = dataset["validation"][0]["sentence"]
-    test_label = dataset["validation"][0]["label"]
-    train_samples = dataset["train"][:200]["sentence"]
-    train_labels = dataset["train"][:200]["label"]
+    train_dataset = load_dataset("glue", "sst2", split="train[:5%]")
+    test_example = load_dataset("glue", "sst2", split="test[:1]")
+
     # Define Model
     tokenizer = AutoTokenizer.from_pretrained(
         "distilbert-base-uncased-finetuned-sst-2-english"
@@ -38,21 +24,23 @@ if __name__ == "__main__":
         "distilbert-base-uncased-finetuned-sst-2-english"
     )
     model.eval()
-    # Test Layerwise Gradients
-    cg.start("Grads")
-    grads = get_all_layer_gradients(
-        train_samples, train_labels, model, tokenizer, sparse=True
-    )
-    # Test LIG
-    cg.split("ligs")
-    ligs = get_all_layer_integrated_gradients(
-        [test_sample], [test_label], model, tokenizer
-    )
-    cg.split("Similarities")
-    simils = get_cos_similarities(ligs, grads)
-    best_examples = get_n_best_matches(simils, train_samples)
-    cg.stop()
+    model.zero_grad()
+    layers = model.distilbert.transformer.layer
 
-    print(test_sample)
-    pprint(best_examples)
-    print(cg.report())
+    def fwd(inputs, mask): return model(inputs,
+                                        attention_mask=mask).logits
+
+    # Define Dataloader
+    ds = train_dataset.map(encode, batched=True, fn_kwargs={
+        "tokenizer": tokenizer})
+    ds.set_format("torch", columns=["input_ids", "attention_mask", "label"])
+    dataloader = torch.utils.data.DataLoader(
+        ds, collate_fn=tokenizer.pad, batch_size=30)
+
+    # Get Gradients
+    pickled_grads = "./dense_gradients.pkl"
+    print("Calculating gradients...")
+    grads = get_all_layer_gradients_2(dataloader, layers, fwd, sparse=False)
+    print("Saving gradients...")
+    with open(pickled_grads, "wb") as f:
+        pickle.dump(grads, f)

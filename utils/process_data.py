@@ -1,6 +1,10 @@
 import torch
 
 
+def encode(examples, tokenizer):
+    return tokenizer(examples["sentence"], truncation=True)
+
+
 def make_input(text, tokenizer):
     return torch.tensor([tokenizer.encode(text)])
 
@@ -31,7 +35,8 @@ def dense_to_topk_sparse(tensor, k):
     topk = torch.topk(summed, k=k, dim=1)
     # Transform indices for sparse representation
     indices = torch.tensor(
-        [[i, x.item()] for i in range(len(topk.indices)) for x in topk.indices[i]]
+        [[i, x.item()] for i in range(len(topk.indices))
+         for x in topk.indices[i]]
     ).T
     values = topk.values.flatten()
     # Create sparse tensor
