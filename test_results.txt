@@ -1,0 +1,50 @@
+In [24]: test_sentence
+Out[24]: 'uneasy mishmash of styles and genres .'
+
+In [25]: best_grad_sentences
+Out[25]: 
+                                                                                                                                      sentence  grad score  emb score
+0                                                                                                            , incoherence and sub-sophomoric     0.682735   0.158105
+1                            lawrence unleashes his trademark misogyny -- er , comedy -- like a human volcano or an overflowing septic tank ,     0.627559   0.138836
+2                                                                                          be used as analgesic balm for overstimulated minds     0.601364   0.108106
+3                                                                                                                    misconstrued as weakness     0.578619   0.138078
+4                                                                                  its metaphors are opaque enough to avoid didacticism , and     0.576773   0.120613
+5                                                                                    searches ( vainly , i think ) for something fresh to say     0.561890   0.148546
+6                                           if oscar had a category called best bad film you thought was going to be really awful but was n't     0.561278   0.074642
+7                                                                                was that santa bumps up against 21st century reality so hard     0.560755   0.107546
+8                                                                                                         of softheaded metaphysical claptrap     0.560335   0.123727
+9                                                                                                                      the tragedy beneath it     0.559748   0.137116
+10                                                                                                                      into forced fuzziness     0.559415   0.130110
+11                                                                                                                                 intolerant     0.557533   0.102891
+12                                                                                                                              were insulted     0.554074   0.132400
+13                                                                                     seem to be introverted young men with fantasy fetishes     0.553347   0.104780
+14  that begins as a seven rip-off , only to switch to a mix of the shining , the thing , and any naked teenagers horror flick from the 1980s     0.553250   0.097863
+15                                                                      could possibly be more contemptuous of the single female population .     0.552503   0.107833
+16                                                                                                                                 , tortured     0.547266   0.123033
+17                                                                                 like stereotypical caretakers and moral teachers , instead     0.547167   0.168443
+18                                              wondering why lee 's character did n't just go to a bank manager and save everyone the misery     0.544816   0.116852
+19                                                                                                                               the pitfalls     0.539222   0.137274
+
+In [26]: best_emb_sentences
+Out[26]: 
+                                           sentence  grad score  emb score
+0                                       a mishmash      -0.6163   0.581581
+1        a confusing melange of tones and styles ,      -0.4446   0.416713
+2          yet overflows with wisdom and emotion .      -0.0393   0.393614
+3         , gangs excels in spectacle and pacing .      -0.0946   0.364716
+4          is a remarkable piece of filmmaking ...       0.0853   0.342221
+5             are worth the price of admission ...      -0.0294   0.338965
+6               's the prince of egypt from 1998 .       0.0627   0.337597
+7    ignore the reputation , and ignore the film .      -0.3599   0.327250
+8           , hollywood is sordid and disgusting .      -0.4672   0.322493
+9                              frustrating misfire      -0.5000   0.321526
+10          're desperate for the evening to end .      -0.4809   0.319782
+11             's insecure in lovely and amazing ,       0.0085   0.319560
+12                                          uneasy      -0.4473   0.318999
+13                               utterly misplaced      -0.5046   0.316125
+14            's appealingly manic and energetic .       0.0417   0.315808
+15          group articulates a flood of emotion .      -0.0599   0.315357
+16  with some glimpses of nature and family warmth      -0.0467   0.314885
+17  a wildly entertaining scan of evans ' career .       0.1310   0.314802
+18                  tsai 's usual style and themes       0.0355   0.313825
+19      's simply stupid , irrelevant and deeply ,      -0.2614   0.311862

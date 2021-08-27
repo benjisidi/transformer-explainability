@@ -8,17 +8,27 @@ def flatten_normalize_layers(params):
     return nn.functional.normalize(flat, dim=0)
 
 
-def get_cos_similarites_2(test_attr, training_grads):
+def get_cos_similarites_2(test_attr, training_grads, sparse=True):
     _, n_samples, _ = training_grads.shape
     cos = nn.CosineSimilarity(dim=0)
     test_attr_normalized = nn.functional.normalize(test_attr.flatten(), dim=0)
     similarities = []
     for i in range(n_samples):
-        sample_grad_normalized = nn.functional.normalize(
-            torch.select(training_grads, 1, i).to_dense().flatten(), dim=0
-        )  # ToDo: Should this happen before sparse?
+        if sparse:
+            sample_grad_normalized = nn.functional.normalize(
+                torch.select(training_grads, 1, i).to_dense().flatten(), dim=0
+            )  # ToDo: Should this happen before sparse?
+        else:
+            sample_grad_normalized = nn.functional.normalize(
+                torch.select(training_grads, 1, i).flatten(), dim=0
+            )
         similarities.append(cos(test_attr_normalized, sample_grad_normalized))
+
     return torch.stack(similarities)
+
+
+def get_embedding_similarities():
+    pass
 
 
 def get_cos_similarities(test_attributions, training_gradients):
@@ -40,14 +50,15 @@ def get_cos_similarities(test_attributions, training_gradients):
     return torch.tensor(results)
 
 
-def get_n_best_matches(scores, candidates, n=10):
+def get_n_best_matches(scores, candidates, emb_simils, n=10):
     # Scores: n_test x n_train tensor of cos similarities
     # Candidates: n_train examples (str)
     results = []
     for sample_scores in scores:
-        sorted_candidates = list(
-            zip(*sorted(zip(sample_scores, candidates), reverse=True))
-        )[1]
+        sorted_scores, sorted_candidates, sorted_emb_scores = list(
+            zip(*sorted(zip(sample_scores, candidates, emb_simils), reverse=True))
+        )
         best_matches = sorted_candidates[:n]
-        results.append(best_matches)
+        best_scores = list(map(lambda x: x.item(), sorted_scores[:n]))
+        results.append((best_matches, best_scores, sorted_emb_scores[:n]))
     return results

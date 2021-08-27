@@ -7,7 +7,9 @@ from .process_data import dense_to_topk_sparse
 from tqdm import tqdm
 
 
-def get_all_layer_gradients_2(loader, layers, fwd, fwd_args=(), sparse=True, k=70):
+def get_all_layer_gradients_2(
+    loader, layers, fwd, fwd_args=(), sparse=True, k=70, device="cpu"
+):
     """
     Params:
         loader: dataloader that returns batches of (inputs, attn_masks, labels)
@@ -21,6 +23,7 @@ def get_all_layer_gradients_2(loader, layers, fwd, fwd_args=(), sparse=True, k=7
     for layer in layers:
         layer_grads = []
         for batch in tqdm(loader):
+            batch.to(device)
             batch_grads, _ = compute_layer_gradients_and_eval(
                 fwd,
                 layer,
@@ -32,7 +35,7 @@ def get_all_layer_gradients_2(loader, layers, fwd, fwd_args=(), sparse=True, k=7
                 layer_grads.append(dense_to_topk_sparse(batch_grads[0], k=k))
             else:
                 batch_grads = batch_grads[0].sum(dim=1)
-                layer_grads.append(batch_grads)
+                layer_grads.append(batch_grads.cpu())
         all_grads.append(torch.cat(layer_grads))
     return torch.stack(all_grads)
 
@@ -64,16 +67,23 @@ def get_all_layer_gradients(
     return all_grads
 
 
-def get_all_layer_integrated_gradients(inputs, mask, target, layers, fwd, fwd_args=()):
+def get_all_layer_integrated_gradients(
+    inputs, mask, target, layers, fwd, fwd_args=(), device="cpu"
+):
+    if len(inputs.shape) == 1:
+        inputs = inputs.unsqueeze(0)
     baseline = torch.zeros_like(inputs)
     output = []
+    inputs.to(device)
     for layer in layers:
         layer_integrated_grads = LayerIntegratedGradients(
             fwd, layer, multiply_by_inputs=False
         )
         layer_attrs = layer_integrated_grads.attribute(
-            inputs, baselines=baseline, target=target, additional_forward_args=[
-                mask, *fwd_args] if fwd_args else mask,
+            inputs,
+            baselines=baseline,
+            target=target,
+            additional_forward_args=[mask, *fwd_args] if fwd_args else mask,
         )
-        output.append(layer_attrs)
+        output.append(layer_attrs.cpu())
     return torch.stack(output)
