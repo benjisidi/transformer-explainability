@@ -6,12 +6,12 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from captum.attr import LayerIntegratedGradients
 
 from utils.compute_gradients import (
+    get_layer_gradients,
+    get_layer_integrated_gradients,
     get_all_layer_gradients,
-    get_all_layer_integrated_gradients,
-    get_all_layer_gradients_2,
 )
-from utils.compare_gradients import get_cos_similarites_2
-from utils.process_data import make_input_batch, encode
+from utils.compare_gradients import get_cos_similarites
+from utils.process_data import make_input, encode
 from pprint import pprint
 
 from datasets import load_dataset
@@ -41,19 +41,18 @@ layers = model.distilbert.transformer.layer
 ds = dataset["train"]
 ds = ds.map(encode, batched=True, fn_kwargs={"tokenizer": tokenizer})
 ds.set_format("torch", columns=["input_ids", "attention_mask", "label"])
-dataloader = torch.utils.data.DataLoader(
-    ds, collate_fn=tokenizer.pad, batch_size=50)
+dataloader = torch.utils.data.DataLoader(ds, collate_fn=tokenizer.pad, batch_size=50)
 
 
-def fwd(inputs, mask): return model(inputs,
-                         attention_mask=mask).logits
+def fwd(inputs, mask):
+    return model(inputs, attention_mask=mask).logits
 
 
 # %%
-grads = get_all_layer_gradients_2(dataloader, layers, fwd)
+grads = get_layer_gradients(dataloader, layers, fwd)
 
 # %%
-test_input, test_mask = make_input_batch([test_sample], tokenizer)
+test_input, test_mask = make_input([test_sample], tokenizer)
 baseline = torch.zeros_like(test_input)
 test_attributions = []
 for layer in layers:
@@ -69,8 +68,7 @@ test_attributions = torch.stack(test_attributions).squeeze().sum(1)
 # %%
 
 # %%
-simils = get_cos_similarites_2(
-    test_attr=test_attributions, training_grads=grads)
+simils = get_cos_similarites(test_attr=test_attributions, training_grads=grads)
 # %%
 sorted_scores, sorted_candidates = list(
     zip(*sorted(zip(simils, train_samples), reverse=True))
@@ -83,8 +81,7 @@ list(zip(sorted_candidates, sorted_scores))
 # %%
 ds = dataset["train"]
 ds = ds.map(encode, batched=True, fn_kwargs={"tokenizer": tokenizer})
-dataloader = torch.utils.data.DataLoader(
-    ds, collate_fn=tokenizer.pad, batch_size=10)
+dataloader = torch.utils.data.DataLoader(ds, collate_fn=tokenizer.pad, batch_size=10)
 
 for i, batch in enumerate(dataloader):
     if i < 5:

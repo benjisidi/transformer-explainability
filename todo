@@ -1,4 +1,4 @@
-Initial Foray:
+Does it work:
     ✔ LIG for a single layer for single input @done(21-07-18 12:56)
     ✔ LIG for all layers for single input @done(21-07-18 12:56)
     ✔ Gradients from a single example from a single layer @done(21-07-18 12:56)
@@ -7,7 +7,43 @@ Initial Foray:
     ✔ Implement cosine similarity between grads and attributions @done(21-07-27 14:11)
     ✔ Test using raw inputs not embeddings (for attention masks) @done(21-07-27 20:08)
     ✔ Implement a batch loader @started(21-07-27 14:13) @done(21-07-27 20:08) @lasted(5h55m13s)
-    ☐ Get a working full run-through with layer_integrated_gradients and cos similarity
-    ☐ Do some data exploration on the gradients to devise a good compression strategy
-    ☐ Run a test using glue/SST2!
-    ☐ Write up layer conductance paper and consider vs LIG
+    ✔ Get a working full run-through with layer_integrated_gradients and cos similarity @done(21-10-06 17:06)
+    ✔ Run a test using glue/SST2! @done(21-10-06 17:06)
+    ✔ What do -ve correlations mean? @done(21-10-08 11:50) [ These are fine. The grads can be +ve and -ve, while attr are always +ve.]
+    ✔ Plot embedding score vs attribution score @done(21-10-08 11:50) [ NO CORRELATION. BUG HUNTING TIME ]
+    ✔ Run for larger # of test examples, find train examples' mean similarity and # of top 10s as a sanity check @done(21-10-22 10:22)
+    ☐ Code Refactor
+    ☐ Add uuids to dataset and find least valuable examples
+    ☐ Set up distilbert fine tuning
+
+
+Is it scalable:
+    ☐ LIGs are already an approximation, might not need topk
+    ☐ Conductance?
+    ☐ Run with larger model/dataset and see what runtimes are like
+
+
+Outstanding Questions:
+    ☐ Are test examples with no highly correlated training examples more frequently misclassified?
+    ☐ If we remove "low-quality" training examples does this reduce performance less than a random set?
+    ☐ If we remove "high-quailty" training examples does this reduce performance more than a random set?
+
+
+Write-up:
+15-20  pgs background (+ analysis)
+understands literature
+can write
+effort
+difficulty
+
+build out skeleton linearly
+40-60 pages
+add s
+draft next friday
+    ☐ 3-4 PAGES / DAY
+    ☐ Introduction
+    ☐ Background
+    ☐ Lit review plan
+    ☐ Lit review
+    ☐ Methods
+    ☐ Results
