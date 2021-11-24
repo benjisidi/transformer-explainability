@@ -1,6 +1,48 @@
 import torch
 
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from .util import get_nested_property
+
+layers_of_interest = [
+    "distilbert.transformer.layer.0.attention.q_lin",
+    "distilbert.transformer.layer.0.attention.k_lin",
+    "distilbert.transformer.layer.0.attention.v_lin",
+    "distilbert.transformer.layer.0.attention.out_lin",
+    "distilbert.transformer.layer.0.ffn.lin1",
+    "distilbert.transformer.layer.0.ffn.lin2",
+    "distilbert.transformer.layer.1.attention.q_lin",
+    "distilbert.transformer.layer.1.attention.k_lin",
+    "distilbert.transformer.layer.1.attention.v_lin",
+    "distilbert.transformer.layer.1.attention.out_lin",
+    "distilbert.transformer.layer.1.ffn.lin1",
+    "distilbert.transformer.layer.1.ffn.lin2",
+    "distilbert.transformer.layer.2.attention.q_lin",
+    "distilbert.transformer.layer.2.attention.k_lin",
+    "distilbert.transformer.layer.2.attention.v_lin",
+    "distilbert.transformer.layer.2.attention.out_lin",
+    "distilbert.transformer.layer.2.ffn.lin1",
+    "distilbert.transformer.layer.2.ffn.lin2",
+    "distilbert.transformer.layer.3.attention.q_lin",
+    "distilbert.transformer.layer.3.attention.k_lin",
+    "distilbert.transformer.layer.3.attention.v_lin",
+    "distilbert.transformer.layer.3.attention.out_lin",
+    "distilbert.transformer.layer.3.ffn.lin1",
+    "distilbert.transformer.layer.3.ffn.lin2",
+    "distilbert.transformer.layer.4.attention.q_lin",
+    "distilbert.transformer.layer.4.attention.k_lin",
+    "distilbert.transformer.layer.4.attention.v_lin",
+    "distilbert.transformer.layer.4.attention.out_lin",
+    "distilbert.transformer.layer.4.ffn.lin1",
+    "distilbert.transformer.layer.4.ffn.lin2",
+    "distilbert.transformer.layer.5.attention.q_lin",
+    "distilbert.transformer.layer.5.attention.k_lin",
+    "distilbert.transformer.layer.5.attention.v_lin",
+    "distilbert.transformer.layer.5.attention.out_lin",
+    "distilbert.transformer.layer.5.ffn.lin1",
+    "distilbert.transformer.layer.5.ffn.lin2",
+    "pre_classifier",
+    "classifier",
+]
 
 
 def get_distilbert_finetuned():
@@ -16,5 +58,5 @@ def get_distilbert_finetuned():
     model.eval()
     model.zero_grad()
     model.to(device)
-    layers = model.distilbert.transformer.layer
+    layers = [get_nested_property(model, x) for x in layers_of_interest]
     return model, tokenizer, layers

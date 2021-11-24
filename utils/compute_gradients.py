@@ -39,13 +39,46 @@ def get_layer_gradients(
     return torch.stack(all_grads)
 
 
+def get_layer_output_gradients(loader, layers, fwd, device="cpu"):
+    """
+    Params:
+        loader: dataloader that returns batches of (inputs, attn_masks, labels)
+        layers: list of model layers
+        fwd: forward function for captum
+    """
+    all_grads = torch.zeros(len(loader), 42242)
+    for batch in tqdm(loader):
+        batch.to(device)
+        best = fwd(batch["input_ids"], batch["attention_mask"]).squeeze()
+        best.backward()
+        batch_grads = []
+        for layer in layers:
+            for param in layer.parameters():
+                batch_grads.append(param.grad)
+        # layer outputs have 1 dim
+        all_grads[batch["id"].item()] = torch.cat(
+            [x for x in batch_grads if len(x.shape) == 1]
+        )
+    return all_grads
+
+
 def get_layer_integrated_gradients(
-    inputs, mask, layers, fwd, fwd_args=(), device="cpu", target=None
+    inputs,
+    mask,
+    layers,
+    fwd,
+    fwd_args=(),
+    device="cpu",
+    target=None,
+    attr_to_inputs=False,
 ):
     if len(inputs.shape) == 1:
         inputs = inputs.unsqueeze(0)
     baseline = torch.zeros_like(inputs)
-    baseline.to(device)
+    inputs = inputs.to(device)
+    baseline = baseline.to(device)
+    mask = mask.to(device)
+    target = target.to(device)
     output = []
     for layer in layers:
         layer_integrated_grads = LayerIntegratedGradients(
@@ -56,6 +89,10 @@ def get_layer_integrated_gradients(
             baselines=baseline,
             target=target,
             additional_forward_args=[mask, *fwd_args] if fwd_args else mask,
+            attribute_to_layer_input=attr_to_inputs,
         )
         output.append(layer_attrs.cpu())
-    return torch.stack(output)
+    output = [
+        x.squeeze().mean(dim=0) if len(x.shape) == 3 else x.squeeze() for x in output
+    ]
+    return torch.cat(output)

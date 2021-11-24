@@ -2,13 +2,28 @@ import torch
 from torch import nn
 
 
+def get_cos_similarities_batch(test_attributions, training_grads):
+    """
+    Takes a single list of test attributions and a batch of train gradients
+    and returns cos similarities
+    """
+    # initialise cos similarity and output
+    n_examples = training_grads.shape[0]
+    cos = nn.CosineSimilarity(dim=1)
+    tiled_attributions = torch.tile(test_attributions, (n_examples, 1))
+    return cos(
+        tiled_attributions,
+        training_grads,
+    )
+
+
 def flatten_normalize_layers(params):
     summed = params.sum(axis=1)
     flat = summed.reshape(params.shape[0] * params.shape[2])
     return nn.functional.normalize(flat, dim=0)
 
 
-def get_cos_similarites_batch(test_attr, training_grads, sparse=True):
+def get_cos_similarites_batch_old(test_attr, training_grads, sparse=True):
     # First reshape and normalise test attributions
     layers, batch_size, tokens, neurons = test_attr.shape
     # Sum attributions over tokens

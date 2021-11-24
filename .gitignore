@@ -112,5 +112,5 @@ fil-result/
 # Data
 *.pkl
 *.npy
-data/
+data
 plots/

@@ -12,15 +12,15 @@ Does it work:
     ✔ What do -ve correlations mean? @done(21-10-08 11:50) [ These are fine. The grads can be +ve and -ve, while attr are always +ve.]
     ✔ Plot embedding score vs attribution score @done(21-10-08 11:50) [ NO CORRELATION. BUG HUNTING TIME ]
     ✔ Run for larger # of test examples, find train examples' mean similarity and # of top 10s as a sanity check @done(21-10-22 10:22)
-    ☐ Code Refactor
-    ☐ Add uuids to dataset and find least valuable examples
-    ☐ Set up distilbert fine tuning
+    ✔ Add uuids to dataset @done(21-11-24 10:49)
+    ✔ Implement fast layerwise gradients for batches of data @done(21-11-24 12:14)
+    ✔ Calc all grads and save @done(21-11-24 12:14)
+    ☐ Refactor cos similarities
+    ☐ Regenerate results
 
 
 Is it scalable:
     ☐ LIGs are already an approximation, might not need topk
-    ☐ Conductance?
-    ☐ Run with larger model/dataset and see what runtimes are like
 
 
 Outstanding Questions:
