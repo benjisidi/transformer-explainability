@@ -152,3 +152,16 @@ def get_layer_integrated_gradients(
         x.squeeze().mean(dim=0) if len(x.shape) == 3 else x.squeeze() for x in output
     ]
     return torch.cat(output)
+
+
+def get_embeddings(input_loader, model, embed_dim):
+    print("Calculating embeddings...")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    all_embeddings = torch.zeros(len(input_loader.dataset), embed_dim)
+    embeddings = model.get_input_embeddings()
+    for batch in tqdm(input_loader):
+        batch_embeddings = embeddings(batch["input_ids"].to(device)).detach()
+        all_embeddings[batch["id"].squeeze().cpu()] = torch.mean(
+            batch_embeddings, dim=1
+        ).cpu()
+    return all_embeddings

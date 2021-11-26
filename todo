@@ -25,10 +25,11 @@ Does it work:
     ✔ Function to print best matches @done(21-11-26 10:54)
     ✔ Compute simils for large # of examples @done(21-11-26 10:54)
     ✔ Re-generate histograms @done(21-11-26 11:32)
-    ☐ Sentence length vs Mean score
+    ✔ Sentence length vs Mean score @done(21-11-26 16:23)
     ☐ Word occurence vs Mean score?
-    ☐ Re-generate embedding plots
+    ✔ Re-generate embedding plots @done(21-11-26 16:23)
     ☐ Gradient/attribution heatmaps
+    ☐ Per-feature correlation/contribution
     ☐ Text examples
     ☐ Refactor code for submission
 
