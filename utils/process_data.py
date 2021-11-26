@@ -71,3 +71,17 @@ def get_sst2(tokenizer):
         "torch", columns=["input_ids", "attention_mask", "label", "id"]
     )
     return train_dataset_tokenized, test_dataset_tokenized
+
+
+def get_layer_output_size(layer):
+    if hasattr(layer, "out_features"):
+        return layer.out_features
+    elif layer._get_name() == "Embedding":
+        # handle embeddings
+        return layer.weight.size()[1]
+    else:
+        raise "Unknown layer format"
+
+
+def get_total_features(layers):
+    return sum([get_layer_output_size(x) for x in layers])

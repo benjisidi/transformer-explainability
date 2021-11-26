@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+from .compute_gradients import get_layer_integrated_gradients
 
 
 def get_cos_similarities_batch(test_attributions, training_grads):
@@ -87,3 +88,36 @@ def get_n_best_matches(scores, candidates, emb_simils, n=10):
         best_scores = list(map(lambda x: x.item(), sorted_scores[:n]))
         results.append((best_matches, best_scores, sorted_emb_scores[:n]))
     return results
+
+
+def get_scores(
+    test_point, train_gradients, layers, fwd, device, return_attributions=False
+):
+    test_attributions = get_layer_integrated_gradients(
+        test_point["input_ids"],
+        test_point["attention_mask"],
+        layers=layers,
+        fwd=fwd,
+        device=device,
+        target=test_point["label"],
+    )
+    scores = torch.zeros(len(train_gradients))
+    cos_batch_size = 500
+    i = 0
+    while i < len(train_gradients):
+        batch = train_gradients[i : i + cos_batch_size]
+        simils = get_cos_similarities_batch(
+            test_attributions.to(device), batch.to(device)
+        )
+        scores[i : i + cos_batch_size] = simils.cpu()
+        i += cos_batch_size
+    if return_attributions:
+        return scores, test_attributions
+    return scores
+
+
+def compare_embeddings(train_points, test_point, embed_fn):
+    train_embeddings = embed_fn(train_points)
+    test_embeddings = test_point(embed_fn)
+    simils = get_cos_similarities_batch(test_embeddings, train_embeddings)
+    return simils

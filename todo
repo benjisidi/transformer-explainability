@@ -15,8 +15,22 @@ Does it work:
     ✔ Add uuids to dataset @done(21-11-24 10:49)
     ✔ Implement fast layerwise gradients for batches of data @done(21-11-24 12:14)
     ✔ Calc all grads and save @done(21-11-24 12:14)
-    ☐ Refactor cos similarities
-    ☐ Regenerate results
+    ✔ Refactor cos similarities @done(21-11-24 16:58)
+    ✔ Regenerate results @done(21-11-24 16:58)
+    ✔ Investigate key vector having zero grad @done(21-11-24 18:56) [bleh]
+    ✔ CRITICAL: You've been looking at biases only. HAVE to use compute_layer_grads_and_eval @done(21-11-25 09:30)
+        BUT: you can hand it a list of layers, which makes things WAY faster. Should check if this is possible
+        with LIGs too. Go fix the grads code and continue as normal.
+    ✔ Function to return simils for single example @done(21-11-26 10:54)
+    ✔ Function to print best matches @done(21-11-26 10:54)
+    ✔ Compute simils for large # of examples @done(21-11-26 10:54)
+    ✔ Re-generate histograms @done(21-11-26 11:32)
+    ☐ Sentence length vs Mean score
+    ☐ Word occurence vs Mean score?
+    ☐ Re-generate embedding plots
+    ☐ Gradient/attribution heatmaps
+    ☐ Text examples
+    ☐ Refactor code for submission
 
 
 Is it scalable:

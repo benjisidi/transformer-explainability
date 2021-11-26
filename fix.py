@@ -54,7 +54,6 @@ layers_of_interest = [
     "distilbert.transformer.layer.5.ffn.lin1",
     "distilbert.transformer.layer.5.ffn.lin2",
     "pre_classifier",
-    "classifier",
 ]
 
 
