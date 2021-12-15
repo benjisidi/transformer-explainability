@@ -90,3 +90,37 @@ for i, batch in enumerate(dataloader):
         break
 
 # %%
+
+from models.distilbert_finetuned import get_distilbert_finetuned
+from utils.compare_gradients import get_embedding_scores
+from utils.compute_gradients import get_embeddings
+from utils.process_data import get_layer_output_size, get_sst2
+import numpy as np
+import torch
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+# %%
+model, tokenizer, layers = get_distilbert_finetuned()
+train_ds, test_ds = get_sst2(tokenizer, return_sentences=True)
+
+# %%
+np.unique(train_ds["label"], return_counts=True)
+
+# %%
+train_ds[2]
+# %%
+test_labels = [
+    torch.argmax(
+        model(
+            x["input_ids"].unsqueeze(0).to(device),
+            attention_mask=x["attention_mask"].unsqueeze(0).to(device),
+        ).logits[0]
+    )
+    .cpu()
+    .item()
+    for x in test_ds
+]
+# %%
+np.save("./data/test_labels", test_labels)
+# %%

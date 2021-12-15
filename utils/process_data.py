@@ -9,10 +9,8 @@ def encode(examples, tokenizer):
 
 def encode_with_hash(examples, tokenizer):
     tokenizer_features = tokenizer(examples["sentence"], truncation=True)
-    # uuid = {"uuid": [str(uuid4()) for x in examples["idx"]]}
     id = {"id": [torch.tensor([x]) for x in examples["idx"]]}
     return {**tokenizer_features, **id}
-    # return tokenizer_features
 
 
 def make_input(batch_text, tokenizer, padding=True):
@@ -47,7 +45,7 @@ def pad_to_equal_length(x, y):
     return x, y
 
 
-def get_sst2(tokenizer):
+def get_sst2(tokenizer, return_sentences=False):
     train_dataset = load_dataset("glue", "sst2", split="train")
     test_dataset = load_dataset("glue", "sst2", split="test")
     train_dataset_tokenized = train_dataset.map(
@@ -58,7 +56,9 @@ def get_sst2(tokenizer):
         cache_file_name="./data/sst2_train_dataset_cache",
     )
     train_dataset_tokenized.set_format(
-        "torch", columns=["input_ids", "attention_mask", "label", "id"]
+        "torch",
+        columns=["input_ids", "attention_mask", "label", "id"],
+        output_all_columns=return_sentences,
     )
     test_dataset_tokenized = test_dataset.map(
         encode_with_hash,
@@ -68,7 +68,9 @@ def get_sst2(tokenizer):
         cache_file_name="./data/sst2_test_dataset_cache",
     )
     test_dataset_tokenized.set_format(
-        "torch", columns=["input_ids", "attention_mask", "label", "id"]
+        "torch",
+        columns=["input_ids", "attention_mask", "label", "id"],
+        output_all_columns=return_sentences,
     )
     return train_dataset_tokenized, test_dataset_tokenized
 

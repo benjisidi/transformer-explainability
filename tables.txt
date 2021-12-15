@@ -1,0 +1,480 @@
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{876}} & \textbf{it might be tempting to regard mr. andrew and his collaborators as oddballs , but mr. earnhart 's quizzical , charming movie allows us to see them , finally , as artists .} & \\ \hline
+\textcolor{red}{6809} & relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.72 \\
+\textcolor{red}{31098} & , relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.71 \\
+\textcolor{red}{2529} & is its surreal sense of humor and technological finish .  & 0.69 \\
+\textcolor{red}{10640} & there are n't many conclusive answers in the film , but there is an interesting story of pointed personalities , courage , tragedy and the little guys vs. the big guys .  & 0.69 \\
+\textcolor{red}{62915} & the director 's experiment  & 0.68 \\
+\textcolor{red}{67333} & comedy ensemble  & 0.68 \\
+\textcolor{red}{21173} & original and highly cerebral examination  & 0.68 \\
+\textcolor{red}{5943} & , rapid-fire delivery  & 0.68 \\
+\textcolor{red}{8092} & there are n't many conclusive answers in the film , but there is an interesting story of pointed personalities , courage , tragedy and the little guys vs. the big guys  & 0.68 \\
+\textcolor{red}{20816} & what makes salton sea surprisingly engrossing is that caruso takes an atypically hypnotic approach to a world that 's often handled in fast-edit , hopped-up fashion .  & 0.68 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 876}
+\label{tab:test_results_876}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{724}} & \textbf{those who would follow haneke on his creepy explorations ... are rewarded by brutal , committed performances from huppert and magimel .} & \\ \hline
+\textcolor{red}{46549} & guessing plot and  & 0.64 \\
+\textcolor{red}{6809} & relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.64 \\
+\textcolor{red}{10640} & there are n't many conclusive answers in the film , but there is an interesting story of pointed personalities , courage , tragedy and the little guys vs. the big guys .  & 0.63 \\
+\textcolor{red}{37917} & the problems and characters it reveals are universal and involving , and  & 0.63 \\
+\textcolor{red}{4663} & though the aboriginal aspect lends the ending an extraordinary poignancy , and the story  & 0.63 \\
+\textcolor{red}{8092} & there are n't many conclusive answers in the film , but there is an interesting story of pointed personalities , courage , tragedy and the little guys vs. the big guys  & 0.63 \\
+\textcolor{red}{31098} & , relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.62 \\
+\textcolor{red}{2529} & is its surreal sense of humor and technological finish .  & 0.62 \\
+\textcolor{red}{48795} & high drama , disney-style - a wing and a prayer and a hunky has-been pursuing his castle in the sky  & 0.62 \\
+\textcolor{red}{48762} & secretary manages a neat trick , bundling the flowers of perversity , comedy and romance into a strangely tempting bouquet of a movie .  & 0.62 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 724}
+\label{tab:test_results_724}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{86}} & \textbf{... the last time i saw a theater full of people constantly checking their watches was during my sats .} & \\ \hline
+\textcolor{blue}{35382} & invest such subtlety and warmth in an animatronic bear when the humans are acting like puppets  & 0.70 \\
+\textcolor{blue}{44088} & telegraphs every discovery and layers on the gloss of convenience .  & 0.68 \\
+\textcolor{blue}{25743} & to invest such subtlety and warmth in an animatronic bear when the humans are acting like puppets  & 0.67 \\
+\textcolor{blue}{7769} & stephen earnhart 's documentary is a decomposition of healthy eccentric inspiration and ambition -- wearing a cloak of unsentimental , straightforward text -- when it 's really an exercise in gross romanticization of the delusional personality type .  & 0.67 \\
+\textcolor{blue}{35061} & deserve to hear the full story of jonah 's despair -- in all its agonizing , catch-22 glory -- even if they spend years trying to comprehend it .  & 0.67 \\
+\textcolor{blue}{20798} & a film that will be best appreciated by those willing to endure its extremely languorous rhythms , waiting for happiness  & 0.66 \\
+\textcolor{blue}{41861} & tapping into our reality tv obsession , and even tardier  & 0.65 \\
+\textcolor{blue}{36773} & my mind kept returning to one anecdote for comparison : the cartoon in japan that gave people seizures .  & 0.65 \\
+\textcolor{blue}{20422} & , my mind kept returning to one anecdote for comparison : the cartoon in japan that gave people seizures .  & 0.65 \\
+\textcolor{blue}{58047} & its subsequent reinvention , a terrifying study of bourgeois  & 0.65 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 86}
+\label{tab:test_results_86}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1299}} & \textbf{the film is exhilarating to watch because sandler , liberated from the constraints of formula , reveals unexpected depths as an actor .} & \\ \hline
+\textcolor{red}{31098} & , relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.72 \\
+\textcolor{red}{6809} & relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.71 \\
+\textcolor{red}{6226} & a wartime farce in the alternately comic and  & 0.69 \\
+\textcolor{red}{4568} & its use of the thriller form to examine the labyrinthine ways in which people 's lives cross and change ,  & 0.69 \\
+\textcolor{red}{21830} & the thriller form to examine the labyrinthine ways in which people 's lives cross and change  & 0.69 \\
+\textcolor{red}{34485} & ( taymor ) utilizes the idea of making kahlo 's art a living , breathing part of the movie , often catapulting the artist into her own work .  & 0.68 \\
+\textcolor{red}{39323} & its use of the thriller form to examine the labyrinthine ways in which people 's lives cross and change , buffeted by events seemingly out of their control  & 0.68 \\
+\textcolor{red}{2529} & is its surreal sense of humor and technological finish .  & 0.68 \\
+\textcolor{red}{10640} & there are n't many conclusive answers in the film , but there is an interesting story of pointed personalities , courage , tragedy and the little guys vs. the big guys .  & 0.68 \\
+\textcolor{red}{55669} & engages less for its story of actorly existential despair than for its boundary-hopping formal innovations and glimpse into another kind of chinese ` cultural revolution . '  & 0.68 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1299}
+\label{tab:test_results_1299}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{681}} & \textbf{occasionally , in the course of reviewing art-house obscurities and slam-bam action flicks , a jaded critic smacks into something truly new .} & \\ \hline
+\textcolor{red}{14170} & the auteur 's ear for the way fears and slights are telegraphed in the most blithe exchanges gives the film its lingering tug .  & 0.82 \\
+\textcolor{red}{66456} & methodical , measured , and gently tedious in its comedy , secret ballot is a purposefully reductive movie -- which may be why it 's so successful at lodging itself in the brain .  & 0.82 \\
+\textcolor{red}{58356} & to vary the pitch of his movie , balancing deafening battle scenes with quieter domestic scenes of women back home receiving war department telegrams  & 0.81 \\
+\textcolor{red}{12731} & balancing deafening battle scenes with quieter domestic scenes of women back home receiving war department telegrams  & 0.81 \\
+\textcolor{red}{22370} & turns out to be ( assayas ' ) homage to the gallic ` tradition of quality , ' in all its fusty squareness  & 0.80 \\
+\textcolor{red}{2483} & an older cad instructs a younger lad in zen and the art of getting laid in this prickly indie comedy of manners and misanthropy .  & 0.80 \\
+\textcolor{red}{10251} & be ( assayas ' ) homage to the gallic ` tradition of quality , ' in all its fusty squareness  & 0.79 \\
+\textcolor{red}{39026} & stuffed to the brim with ideas , american instigator michael moore 's film is a rambling examination of american gun culture that uses his usual modus operandi of crucifixion through juxtaposition .  & 0.79 \\
+\textcolor{red}{54117} & instructs a younger lad in zen and the art of getting laid in this prickly indie comedy of manners and misanthropy  & 0.79 \\
+\textcolor{red}{23908} & a big-budget/all-star movie as unblinkingly pure as the hours  & 0.79 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 681}
+\label{tab:test_results_681}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{1346}} & \textbf{a dreadful live-action movie .} & \\ \hline
+\textcolor{blue}{31574} & a terrible adaptation  & 0.66 \\
+\textcolor{blue}{23203} & 's something awfully deadly about any movie with a life-affirming message  & 0.65 \\
+\textcolor{blue}{30220} & -- like a rather unbelievable love interest and a meandering ending --  & 0.64 \\
+\textcolor{blue}{5768} & steeped in fairy tales and other childish things  & 0.63 \\
+\textcolor{blue}{4859} & are cheesy backdrops , ridiculous action sequences , and many tired jokes about men in heels  & 0.63 \\
+\textcolor{blue}{65729} & like a rather unbelievable love interest and a meandering ending --  & 0.62 \\
+\textcolor{blue}{9606} & something awfully deadly about any movie with a life-affirming message  & 0.62 \\
+\textcolor{blue}{45359} & comes off as emotionally manipulative and sadly imitative of innumerable past love story derisions .  & 0.62 \\
+\textcolor{blue}{1171} & and a terrible story  & 0.62 \\
+\textcolor{blue}{63543} & a terrible adaptation of a play that only ever walked the delicate tightrope between farcical and loathsome  & 0.62 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1346}
+\label{tab:test_results_1346}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{118}} & \textbf{`` an entire film about researchers quietly reading dusty old letters . ''} & \\ \hline
+\textcolor{blue}{62084} & the movie turns out to be ( assayas ' ) homage to the gallic ` tradition of quality , ' in all its fusty squareness .  & 0.82 \\
+\textcolor{blue}{47693} & american instigator michael moore 's film is a rambling examination of american gun culture that uses his usual modus operandi of crucifixion through juxtaposition .  & 0.81 \\
+\textcolor{blue}{2531} & of day by concentrating on the elements of a revealing alienation among a culture of people who sadly are at hostile odds with one another through recklessness and retaliation  & 0.79 \\
+\textcolor{blue}{32922} & a bizarre piece of work , with premise and dialogue at the level of kids ' television and plot threads  & 0.79 \\
+\textcolor{blue}{8416} & audacity to view one of shakespeare 's better known tragedies as a dark comedy  & 0.78 \\
+\textcolor{blue}{44178} & a bizarre piece of work , with premise and dialogue at the level of kids ' television and plot threads as morose as teen pregnancy , rape and suspected murder  & 0.78 \\
+\textcolor{blue}{34386} & this is a third-person story now , told by hollywood , and much more ordinary for it .  & 0.78 \\
+\textcolor{blue}{46263} & as an intellectual exercise -- an unpleasant debate that 's been given the drive of a narrative and that 's been acted out --  & 0.77 \\
+\textcolor{blue}{53905} & combined scenes of a japanese monster flick with canned shots of raymond burr commenting on the monster 's path of destruction  & 0.77 \\
+\textcolor{blue}{7658} & a younger lad in zen and the art of getting laid in this prickly indie comedy of manners and misanthropy  & 0.77 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 118}
+\label{tab:test_results_118}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{808}} & \textbf{even if you ca n't pronounce `` gyro '' correctly , you 'll appreciate much of vardalos ' humor , which transcends ethnic boundaries .} & \\ \hline
+\textcolor{red}{63476} & he respects the material without sentimentalizing it  & 0.48 \\
+\textcolor{blue}{34380} & by a screenplay that forces them into bizarre , implausible behavior  & 0.47 \\
+\textcolor{red}{48288} & without being forceful , sad without being shrill  & 0.47 \\
+\textcolor{red}{43142} & respects the material without sentimentalizing it  & 0.47 \\
+\textcolor{blue}{1366} & a screenplay that forces them into bizarre , implausible behavior  & 0.46 \\
+\textcolor{blue}{34653} & hip-hop prison thriller of stupefying absurdity  & 0.46 \\
+\textcolor{red}{31192} & more concerned with overall feelings , broader ideas , and open-ended questions than concrete story and definitive answers , soderbergh 's solaris is a gorgeous and deceptively minimalist cinematic tone poem .  & 0.46 \\
+\textcolor{blue}{52483} & hip-hop prison thriller of stupefying absurdity .  & 0.46 \\
+\textcolor{blue}{12785} & these are textbook lives of quiet desperation .  & 0.46 \\
+\textcolor{blue}{32117} & camouflaging grotesque narcissism  & 0.45 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 808}
+\label{tab:test_results_808}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{967}} & \textbf{neither funny nor suspenseful nor particularly well-drawn .} & \\ \hline
+\textcolor{blue}{37137} & a movie more to be prescribed than recommended -- as visually bland as a dentist 's waiting room , complete with soothing muzak and a cushion of predictable narrative rhythms .  & 0.52 \\
+\textcolor{blue}{49257} & more to be prescribed than recommended -- as visually bland as a dentist 's waiting room , complete with soothing muzak and a cushion of predictable narrative rhythms .  & 0.50 \\
+\textcolor{blue}{3928} & clean-cut dahmer ( jeremy renner ) and fiendish acts that no amount of earnest textbook psychologizing can bridge .  & 0.50 \\
+\textcolor{blue}{52682} & return to never land may be another shameless attempt by disney to rake in dough from baby boomer families ,  & 0.50 \\
+\textcolor{blue}{41410} & the film is grossly contradictory in conveying its social message , if indeed there is one .  & 0.50 \\
+\textcolor{blue}{22155} & more to be prescribed than recommended -- as visually bland as a dentist 's waiting room , complete with soothing muzak and a cushion of predictable narrative rhythms  & 0.50 \\
+\textcolor{blue}{31121} & a mormon family movie , and a sappy , preachy one at that  & 0.49 \\
+\textcolor{blue}{21145} & return to never land may be another shameless attempt by disney to rake in dough from baby boomer families  & 0.49 \\
+\textcolor{blue}{400} & gory as the scenes of torture and self-mutilation  & 0.49 \\
+\textcolor{blue}{8932} & a movie like ballistic : ecks vs. sever is more of an ordeal than an amusement .  & 0.49 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 967}
+\label{tab:test_results_967}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{953}} & \textbf{ethan hawke has always fancied himself the bastard child of the beatnik generation and it 's all over his chelsea walls .} & \\ \hline
+\textcolor{red}{44024} & wisely decided to let crocodile hunter steve irwin do what he does best , and fashion a story around him .  & 0.56 \\
+\textcolor{red}{57903} & to its insanely staged ballroom scene , in which 3000 actors appear in full regalia  & 0.55 \\
+\textcolor{red}{21681} & the last scenes of the film are anguished , bitter and truthful .  & 0.54 \\
+\textcolor{red}{66086} & the `` saving private ryan '' battle scenes  & 0.54 \\
+\textcolor{red}{66131} & decided to let crocodile hunter steve irwin do what he does best , and fashion a story around him  & 0.54 \\
+\textcolor{red}{11380} & seen a film so willing to champion the fallibility of the human heart  & 0.54 \\
+\textcolor{red}{13244} & the lady and the duke something of a theatrical air  & 0.53 \\
+\textcolor{red}{45666} & to cut a swathe through mainstream hollywood  & 0.53 \\
+\textcolor{red}{28773} & eddie murphy and owen wilson have a cute partnership in i spy  & 0.53 \\
+\textcolor{red}{19593} & the stars may be college kids , but the subject matter is as adult as you can get : the temptations of the flesh are unleashed by a slightly crazed , overtly determined young woman  & 0.53 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 953}
+\label{tab:test_results_953}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1031}} & \textbf{it 's not exactly a gourmet meal but the fare is fair , even coming from the drive-thru .} & \\ \hline
+\textcolor{red}{64124} & one well-timed explosion in a movie  & 0.65 \\
+\textcolor{red}{8584} & one well-timed explosion in a movie can be a knockout ,  & 0.65 \\
+\textcolor{red}{5824} & it 's an effort to watch this movie , but it eventually pays off and is effective if you stick with it .  & 0.65 \\
+\textcolor{red}{29588} & one thing you have to give them credit for : the message of the movie is consistent with the messages espoused in the company 's previous video work .  & 0.65 \\
+\textcolor{red}{24337} & you 've already seen city by the sea under a variety of titles , but it 's worth yet another visit .  & 0.64 \\
+\textcolor{red}{675} & one of those rare films that seems as though it was written for no one , but somehow manages to convince almost everyone that it was put on the screen , just for them .  & 0.64 \\
+\textcolor{red}{47921} & you 've already seen city by the sea under a variety of titles , but it 's worth yet another visit  & 0.64 \\
+\textcolor{red}{48458} & one well-timed explosion in a movie can be a knockout  & 0.64 \\
+\textcolor{red}{31212} & , secret ballot is a purposefully reductive movie -- which may be why it 's so successful at lodging itself in the brain .  & 0.64 \\
+\textcolor{red}{38382} & it 's an effort to watch this movie , but it eventually pays off and is effective if you stick with it  & 0.64 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1031}
+\label{tab:test_results_1031}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1292}} & \textbf{superior genre storytelling , which gets under our skin simply by crossing the nuclear line .} & \\ \hline
+\textcolor{red}{63577} & an insane comic undertaking  & 0.74 \\
+\textcolor{red}{28065} & the storytelling instincts of a slightly more literate filmgoing audience  & 0.74 \\
+\textcolor{red}{18074} & an unusually dry-eyed , even analytical approach to material that is generally played for maximum moisture .  & 0.73 \\
+\textcolor{red}{18759} & a realistically terrifying movie that puts another notch  & 0.73 \\
+\textcolor{red}{38745} & where the bizarre is credible and the real turns magical  & 0.73 \\
+\textcolor{red}{62506} & `` shakes the clown '' , a much funnier film with a similar theme and an equally great robin williams performance  & 0.72 \\
+\textcolor{red}{38026} & most pleasurable expressions of pure movie  & 0.72 \\
+\textcolor{red}{31098} & , relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.72 \\
+\textcolor{red}{59788} & though brown sugar is so earnest in its yearning for the days before rap went nihilistic that it summons more spirit and bite than your average formulaic romantic quadrangle  & 0.72 \\
+\textcolor{red}{8584} & one well-timed explosion in a movie can be a knockout ,  & 0.72 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1292}
+\label{tab:test_results_1292}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{1290}} & \textbf{the film has a few cute ideas and several modest chuckles but it is n't exactly kiddie-friendly ... alas , santa is more ho-hum than ho-ho-ho and the snowman ( who never gets to play that flute ) has all the charm of a meltdown .} & \\ \hline
+\textcolor{blue}{20798} & a film that will be best appreciated by those willing to endure its extremely languorous rhythms , waiting for happiness  & 0.76 \\
+\textcolor{blue}{22298} & a superfluous sequel ... plagued by that old familiar feeling of ` let 's get this thing over with ' : everyone has shown up at the appointed time and place , but visible enthusiasm is mighty hard to find  & 0.74 \\
+\textcolor{blue}{59190} & the whole dead-undead genre , who deserve more from a vampire pic than a few shrieky special effects  & 0.74 \\
+\textcolor{blue}{30399} & that will be best appreciated by those willing to endure its extremely languorous rhythms , waiting for happiness  & 0.74 \\
+\textcolor{blue}{8184} & of the whole dead-undead genre , who deserve more from a vampire pic than a few shrieky special effects  & 0.74 \\
+\textcolor{blue}{30218} & a superfluous sequel ... plagued by that old familiar feeling of ` let 's get this thing over with ' : everyone has shown up at the appointed time and place , but visible enthusiasm is mighty hard to find .  & 0.74 \\
+\textcolor{blue}{15142} & one of the more glaring signs of this movie 's servitude to its superstar is the way it skirts around any scenes that might have required genuine acting from ms. spears .  & 0.73 \\
+\textcolor{blue}{31113} & will be best appreciated by those willing to endure its extremely languorous rhythms , waiting for happiness  & 0.73 \\
+\textcolor{blue}{64268} & is still top-heavy with blazing guns , cheatfully filmed martial arts , disintegrating bloodsucker computer effects and jagged camera moves that serve no other purpose than to call attention to themselves .  & 0.73 \\
+\textcolor{blue}{37263} & contrasting the original ringu with the current americanized adaptation is akin to comparing the evil dead with evil dead ii  & 0.73 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1290}
+\label{tab:test_results_1290}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1473}} & \textbf{( anderson ) uses a hit-or-miss aesthetic that hits often enough to keep the film entertaining even if none of it makes a lick of sense .} & \\ \hline
+\textcolor{red}{19816} & should see it as soon as possible . '  & 0.50 \\
+\textcolor{red}{44806} & should see it as soon as possible  & 0.50 \\
+\textcolor{red}{32492} & a small gem of a movie that defies classification and is as thought-provoking as it  & 0.50 \\
+\textcolor{red}{23990} & should see it as soon as possible .  & 0.49 \\
+\textcolor{red}{37345} & huston performance  & 0.49 \\
+\textcolor{red}{22374} & no real surprises -- but still quite tasty and inviting all the same  & 0.49 \\
+\textcolor{red}{63786} & old-fashioned but emotionally stirring adventure tale  & 0.49 \\
+\textcolor{red}{54808} & not only to his craft , but to his legend  & 0.49 \\
+\textcolor{red}{43142} & respects the material without sentimentalizing it  & 0.49 \\
+\textcolor{red}{7167} & and revolutionary spirit  & 0.48 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1473}
+\label{tab:test_results_1473}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{728}} & \textbf{for all its surface frenzy , high crimes should be charged with loitering -- so much on view , so little to offer .} & \\ \hline
+\textcolor{blue}{66855} & filled with low-brow humor , gratuitous violence and a disturbing disregard for life .  & 0.63 \\
+\textcolor{blue}{2085} & bears a grievous but obscure complaint against fathers ,  & 0.63 \\
+\textcolor{blue}{52682} & return to never land may be another shameless attempt by disney to rake in dough from baby boomer families ,  & 0.63 \\
+\textcolor{blue}{51709} & bears a grievous but obscure complaint against fathers  & 0.63 \\
+\textcolor{blue}{21145} & return to never land may be another shameless attempt by disney to rake in dough from baby boomer families  & 0.62 \\
+\textcolor{blue}{30586} & whose lives were as claustrophic , suffocating and chilly as the attics to which they were inevitably consigned  & 0.62 \\
+\textcolor{blue}{7477} & with tiny little jokes and nary an original idea , this sappy ethnic sleeper proves that not only blockbusters pollute the summer movie pool .  & 0.62 \\
+\textcolor{blue}{4686} & , accompanying the stunt-hungry dimwits in a random series of collected gags , pranks , pratfalls , dares , injuries , etc. .  & 0.62 \\
+\textcolor{blue}{28149} & an unsettling sight , and indicative of his , if you will , out-of-kilter character , who rambles aimlessly through ill-conceived action pieces  & 0.62 \\
+\textcolor{blue}{26085} & the gloomy film noir veil  & 0.62 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 728}
+\label{tab:test_results_728}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1308}} & \textbf{an incendiary , deeply thought-provoking look at one of the most peculiar ( and peculiarly venomous ) bigotries in our increasingly frightening theocracy} & \\ \hline
+\textcolor{red}{37508} & is as thought-provoking as it  & 0.60 \\
+\textcolor{red}{17771} & the pantheon of great monster/science fiction flicks  & 0.59 \\
+\textcolor{red}{64416} & larry fessenden 's spooky new thriller  & 0.59 \\
+\textcolor{red}{37292} & this sad , occasionally horrifying but often inspiring film  & 0.59 \\
+\textcolor{red}{27523} & the unusual power of thoughtful , subjective filmmaking  & 0.59 \\
+\textcolor{red}{7167} & and revolutionary spirit  & 0.59 \\
+\textcolor{red}{35244} & expert thriller  & 0.58 \\
+\textcolor{red}{22213} & the martial arts master to top form  & 0.58 \\
+\textcolor{red}{27227} & has the scope and shape of an especially well-executed television movie  & 0.58 \\
+\textcolor{red}{27683} & the scope and shape of an especially well-executed television movie  & 0.58 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1308}
+\label{tab:test_results_1308}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1294}} & \textbf{it 's one of the most honest films ever made about hollywood .} & \\ \hline
+\textcolor{red}{7167} & and revolutionary spirit  & 0.39 \\
+\textcolor{red}{37508} & is as thought-provoking as it  & 0.38 \\
+\textcolor{red}{100} & in memory  & 0.38 \\
+\textcolor{red}{46065} & landmark  & 0.38 \\
+\textcolor{red}{39789} & the guru who helped  & 0.38 \\
+\textcolor{red}{37564} & seal the deal  & 0.38 \\
+\textcolor{red}{63900} & excellent latin actors of all ages  & 0.38 \\
+\textcolor{red}{83} & based on a true and historically significant story  & 0.38 \\
+\textcolor{red}{19597} & of the austin powers films  & 0.38 \\
+\textcolor{red}{1660} & revolutionary spirit  & 0.37 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1294}
+\label{tab:test_results_1294}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{418}} & \textbf{the level of maturity displayed by this 33-year-old first-time feature director is astonishing , considering her inexperience and her subject matter .} & \\ \hline
+\textcolor{red}{6809} & relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.72 \\
+\textcolor{red}{2529} & is its surreal sense of humor and technological finish .  & 0.71 \\
+\textcolor{red}{31098} & , relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .  & 0.71 \\
+\textcolor{red}{48762} & secretary manages a neat trick , bundling the flowers of perversity , comedy and romance into a strangely tempting bouquet of a movie .  & 0.71 \\
+\textcolor{red}{29588} & one thing you have to give them credit for : the message of the movie is consistent with the messages espoused in the company 's previous video work .  & 0.70 \\
+\textcolor{red}{3752} & the most surprising thing about this film  & 0.70 \\
+\textcolor{red}{36188} & its surreal sense of humor and technological finish  & 0.70 \\
+\textcolor{red}{33494} & trial movie , escape movie and unexpected fable  & 0.70 \\
+\textcolor{red}{10640} & there are n't many conclusive answers in the film , but there is an interesting story of pointed personalities , courage , tragedy and the little guys vs. the big guys .  & 0.70 \\
+\textcolor{red}{57185} & offers piercing domestic drama with spikes of sly humor  & 0.70 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 418}
+\label{tab:test_results_418}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{red}{\textbf{1045}} & \textbf{city by the sea is the cinematic equivalent of defensive driving : it 's careful , conscientious and makes no major mistakes .} & \\ \hline
+\textcolor{red}{60822} & be found a tough beauty  & 0.41 \\
+\textcolor{red}{37439} & found a tough beauty  & 0.40 \\
+\textcolor{red}{3676} & is playful but highly studied and dependent for its success on a patient viewer .  & 0.40 \\
+\textcolor{red}{31408} & is playful but highly studied and dependent for its success on a patient viewer  & 0.39 \\
+\textcolor{red}{22304} & at ease sharing the same scene  & 0.39 \\
+\textcolor{red}{1914} & playful but highly studied and dependent for its success on a patient viewer  & 0.39 \\
+\textcolor{red}{30029} & tooled action thriller about love and terrorism  & 0.38 \\
+\textcolor{red}{49682} & if somewhat standardized ,  & 0.38 \\
+\textcolor{red}{35862} & cletis is playful but highly studied and dependent for its success on a patient viewer .  & 0.38 \\
+\textcolor{red}{58572} & that seems tailor  & 0.37 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1045}
+\label{tab:test_results_1045}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lp{0.95\linewidth}l}
+\hline
+Id & Sentence & Score \\ \hline
+\textcolor{blue}{\textbf{1590}} & \textbf{though howard demonstrates a great eye as a director , this southern gothic drama is sadly a tough sit , with an undeveloped narrative and enough flashbacks and heavy-handed metaphors to choke a horse -- or at least slow him down to a canter .} & \\ \hline
+\textcolor{blue}{44056} & this is a frustrating patchwork : an uneasy marriage of louis begley 's source novel ( about schmidt ) and an old payne screenplay .  & 0.81 \\
+\textcolor{blue}{60676} & ultimately this is a frustrating patchwork : an uneasy marriage of louis begley 's source novel ( about schmidt ) and an old payne screenplay .  & 0.81 \\
+\textcolor{blue}{34402} & is a frustrating patchwork : an uneasy marriage of louis begley 's source novel ( about schmidt ) and an old payne screenplay  & 0.81 \\
+\textcolor{blue}{20098} & is a frustrating patchwork : an uneasy marriage of louis begley 's source novel ( about schmidt ) and an old payne screenplay .  & 0.81 \\
+\textcolor{blue}{20677} & the movie has a script ( by paul pender ) made of wood , and it 's relentlessly folksy , a procession of stagy set pieces stacked with binary oppositions  & 0.80 \\
+\textcolor{blue}{12800} & the movie has a script ( by paul pender ) made of wood , and it 's relentlessly folksy , a procession of stagy set pieces stacked with binary oppositions .  & 0.80 \\
+\textcolor{blue}{51169} & ponderous , plodding soap opera disguised as a feature film  & 0.80 \\
+\textcolor{blue}{12785} & these are textbook lives of quiet desperation .  & 0.80 \\
+\textcolor{blue}{37651} & but a convenient conveyor belt of brooding personalities that parade about as if they were coming back from stock character camp -- a drowsy drama infatuated by its own pretentious self-examination  & 0.80 \\
+\textcolor{blue}{64963} & a convenient conveyor belt of brooding personalities that parade about as if they were coming back from stock character camp -- a drowsy drama infatuated by its own pretentious self-examination  & 0.80 \\
+\hline
+\end{tabular}
+}
+\caption{Top 10 scoring sentences for test example 1590}
+\label{tab:test_results_1590}
+\end{table}

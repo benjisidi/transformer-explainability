@@ -134,7 +134,8 @@ def get_layer_integrated_gradients(
     inputs = inputs.to(device)
     baseline = baseline.to(device)
     mask = mask.to(device)
-    target = target.to(device)
+    if target is not None:
+        target = target.to(device)
     output = []
     for layer in layers:
         layer_integrated_grads = LayerIntegratedGradients(

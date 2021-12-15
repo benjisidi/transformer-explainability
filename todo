@@ -28,9 +28,10 @@ Does it work:
     ✔ Sentence length vs Mean score @done(21-11-26 16:23)
     ☐ Word occurence vs Mean score?
     ✔ Re-generate embedding plots @done(21-11-26 16:23)
-    ☐ Gradient/attribution heatmaps
+    ✔ Gradient/attribution heatmaps @done(21-11-29 11:08)
     ☐ Per-feature correlation/contribution
-    ☐ Text examples
+    ☐ Per-label histograms
+    ✔ Text examples @done(21-11-29 16:04)
     ☐ Refactor code for submission
 
 
@@ -54,11 +55,21 @@ difficulty
 build out skeleton linearly
 40-60 pages
 add s
-draft next friday
-    ☐ 3-4 PAGES / DAY
-    ☐ Introduction
-    ☐ Background
-    ☐ Lit review plan
-    ☐ Lit review
-    ☐ Methods
-    ☐ Results
+
+FREEDOM:
+    ☐ Structure in attributions and gradients
+    ☐ Potential remedies
+    ☐ Future Work
+        ☐ Ablation Study
+        ☐ Top-K/Graph Parameter activations
+        ☐ Small NN to validate assumption #1
+    ☐ Tidy up intro
+    ☐ Lit review neurons and NNs
+    ☐ Lit review Seq-2-Seq
+    ☐ Lit review tidy up
+        ☐ Multi-layer self-attn diagram
+        ☐ DistilBERT architecture
+    ☐ Results tidy up
+    ☐ SUBMIT
+
+

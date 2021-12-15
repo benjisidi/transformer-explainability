@@ -10,8 +10,8 @@ def get_cos_similarities_batch(test_attributions, training_grads):
     """
     # initialise cos similarity and output
     n_examples = training_grads.shape[0]
-    cos = nn.CosineSimilarity(dim=1)
     tiled_attributions = torch.tile(test_attributions, (n_examples, 1))
+    cos = nn.CosineSimilarity(dim=1)
     return cos(
         tiled_attributions,
         training_grads,
@@ -33,24 +33,30 @@ def get_n_best_matches(scores, candidates, emb_simils, n=10):
 
 
 def get_scores(
-    test_point, train_gradients, layers, fwd, device, return_attributions=False
+    test_point,
+    train_gradients,
+    layers,
+    device,
+    fwd=None,
+    return_attributions=False,
+    test_attributions=None,
 ):
-    test_attributions = get_layer_integrated_gradients(
-        test_point["input_ids"],
-        test_point["attention_mask"],
-        layers=layers,
-        fwd=fwd,
-        device=device,
-        target=test_point["label"],
-    )
+    if test_attributions is None:
+        test_attributions = get_layer_integrated_gradients(
+            test_point["input_ids"],
+            test_point["attention_mask"],
+            layers=layers,
+            fwd=fwd,
+            device=device,
+            # target=test_point["label"],
+        )
     scores = torch.zeros(len(train_gradients))
     cos_batch_size = 500
     i = 0
+    test_attributions = test_attributions.to(device)
     while i < len(train_gradients):
         batch = train_gradients[i : i + cos_batch_size]
-        simils = get_cos_similarities_batch(
-            test_attributions.to(device), batch.to(device)
-        )
+        simils = get_cos_similarities_batch(test_attributions, batch.to(device))
         scores[i : i + cos_batch_size] = simils.cpu()
         i += cos_batch_size
     if return_attributions:
